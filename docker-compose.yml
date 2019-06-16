@@ -1,0 +1,10 @@
+version: '3'
+services:
+  debomatic:
+    build: './debomatic'
+    image: debian:sid
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - ./incoming:/incoming
+    entrypoint: debomatic -c /etc/debomatic/debomatic.conf -i
